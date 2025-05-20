@@ -397,7 +397,6 @@ def run_codeql_analysis(c_path, script_path):
             f"--command={script_path}",
             "--source-root", c_path
         ]
-        logging.info("Running command:", " ".join(create_cmd))
         subprocess.run(create_cmd, check=True)
 
 
