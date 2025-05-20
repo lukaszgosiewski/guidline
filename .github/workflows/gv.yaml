@@ -35,6 +35,7 @@ jobs:
 
       - name: Run CodeQL Analysis
         run: |
+          cat ./testproject/script.sh
           python wrap.py "./testproject" "./testproject/script.sh" "testrepo" "testbranch" 7a8d32e5b9c01f4e6d8b2c7f9e3a1d0b5c4f2e3a https://auth.demos01.soc.plaxidityx.com/auth/realms/cloud/protocol/openid-connect/token http://cert-c-demo.a.demos01.soc.plaxidityx.com/public-api/guideline/v1/guideline-violations api-demo-user@plaxidityx.com xxx
         env:
           PYTHONUNBUFFERED: 1
