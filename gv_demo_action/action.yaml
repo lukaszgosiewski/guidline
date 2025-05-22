@@ -48,7 +48,7 @@ runs:
     shell: pwsh
 
   - name: Run CodeQL Analysis
-  run: python wrap.py "${{ inputs.PATH_TO_BUILDING_SCRIPT }}" "${{ inputs.PATH_TO_CODE }}" "${{ inputs.REPO_NAME }}" "${{ inputs.BRANCH_NAME }}" "${{ inputs.COMMIT_HASH }}" "${{ inputs.AUTH_URL }}" "${{ inputs.APP_URL }}" "${{ inputs.USERNAME }}" "${{ inputs.PASSWORD }}"
-  shell: pwsh
-  env:
+    run: python wrap.py "${{ inputs.PATH_TO_BUILDING_SCRIPT }}" "${{ inputs.PATH_TO_CODE }}" "${{ inputs.REPO_NAME }}" "${{ inputs.BRANCH_NAME }}" "${{ inputs.COMMIT_HASH }}" "${{ inputs.AUTH_URL }}" "${{ inputs.APP_URL }}" "${{ inputs.USERNAME }}" "${{ inputs.PASSWORD }}"
+    shell: pwsh
+    env:
     PYTHONUNBUFFERED: 1
