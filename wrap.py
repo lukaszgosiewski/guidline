@@ -518,6 +518,8 @@ def main():
     app_url = sys.argv[7]
     username = sys.argv[8]
     password = sys.argv[9]
+    
+    print(f"Exists? {os.path.exists(code_path)}")
 
     # Check if user_archive is provided (optional 10th argument)
     user_archive = sys.argv[10] if len(sys.argv) > 10 else None
