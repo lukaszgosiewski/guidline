@@ -28,10 +28,19 @@ inputs:
   PASSWORD:
     description: "Password for authentication"
     required: true
+  TOKEN:
+    description: GitHub token with access to this repo
+    required: true
 
 runs:
   using: "composite"
   steps:
+  - name: Checkout self
+    uses: actions/checkout@v3
+    with:
+      repository: lukaszgosiewski/guidline
+      token: ${{ inputs.TOKEN }}
+      path: self
   - name: Set up Python
     uses: actions/setup-python@v5
     with:
@@ -48,7 +57,12 @@ runs:
     shell: pwsh
 
   - name: Run CodeQL Analysis
-    run: python wrap.py "${{ inputs.PATH_TO_BUILDING_SCRIPT }}" "${{ inputs.PATH_TO_CODE }}" "${{ inputs.REPO_NAME }}" "${{ inputs.BRANCH_NAME }}" "${{ inputs.COMMIT_HASH }}" "${{ inputs.AUTH_URL }}" "${{ inputs.APP_URL }}" "${{ inputs.USERNAME }}" "${{ inputs.PASSWORD }}"
+    run: |
+      echo "Current path:"
+      pwd
+      echo "Files and folders:"
+      ls -R
+      python wrap.py "${{ inputs.PATH_TO_BUILDING_SCRIPT }}" "${{ inputs.PATH_TO_CODE }}" "${{ inputs.REPO_NAME }}" "${{ inputs.BRANCH_NAME }}" "${{ inputs.COMMIT_HASH }}" "${{ inputs.AUTH_URL }}" "${{ inputs.APP_URL }}" "${{ inputs.USERNAME }}" "${{ inputs.PASSWORD }}"
     shell: pwsh
     env:
       PYTHONUNBUFFERED: 1
