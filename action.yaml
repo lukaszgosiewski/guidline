@@ -58,10 +58,10 @@ runs:
 
   - name: Run CodeQL Analysis
     run: |
-      echo "Current path:"
+      echo "Full current path:"
       pwd
-      echo "Files and folders:"
-      ls -R
+      echo "All files with full paths:"
+      find "$(pwd)"
       python wrap.py "${{ inputs.PATH_TO_BUILDING_SCRIPT }}" "${{ inputs.PATH_TO_CODE }}" "${{ inputs.REPO_NAME }}" "${{ inputs.BRANCH_NAME }}" "${{ inputs.COMMIT_HASH }}" "${{ inputs.AUTH_URL }}" "${{ inputs.APP_URL }}" "${{ inputs.USERNAME }}" "${{ inputs.PASSWORD }}"
     shell: pwsh
     env:
