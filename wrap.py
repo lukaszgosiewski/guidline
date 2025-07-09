@@ -524,15 +524,9 @@ def main():
     # Check if user_archive is provided (optional 10th argument)
     user_archive = sys.argv[10] if len(sys.argv) > 10 else None
 
-    # Set paths based on whether user provided an archive
-    if user_archive:
-        base_path = f"/workspace/usercode/{user_archive}"
-        c_path = code_path if code_path else f"{base_path}"
-        script_path = build_script if build_script else f"{base_path}"
-    else:
-        c_path = code_path if code_path else "/workspace/testproject/code"
-        script_path = build_script if build_script else "/workspace/testproject/script.sh"
-
+    c_path = code_path if code_path
+    script_path = build_script
+    
     logging.info(f"Using code path: {c_path}")
     logging.info(f"Using build script: {script_path}")
     logging.info(f"Repository: {repo_name}")
