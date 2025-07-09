@@ -524,9 +524,9 @@ def main():
     # Check if user_archive is provided (optional 10th argument)
     user_archive = sys.argv[10] if len(sys.argv) > 10 else None
 
-    c_path = code_path if code_path
+    c_path = code_path
     script_path = build_script
-    
+
     logging.info(f"Using code path: {c_path}")
     logging.info(f"Using build script: {script_path}")
     logging.info(f"Repository: {repo_name}")
